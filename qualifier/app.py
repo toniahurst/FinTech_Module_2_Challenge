@@ -118,8 +118,6 @@ def save_qualifying_loans(qualifying_loans):
     csvpath = Path(file_name)
     
 
-
-
     save_csv(qualifying_loans, csvpath)
     print('\u001b[32;1m')
     print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
@@ -145,7 +143,7 @@ def run():
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
 
-    # Write to the file
+
     
 
 
