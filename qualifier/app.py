@@ -64,8 +64,6 @@ def get_applicant_info():
     return credit_score, debt, income, loan_amount, home_value
 
 
-    
-
 
 def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_value):
     """Determine which loans the user qualifies for.
