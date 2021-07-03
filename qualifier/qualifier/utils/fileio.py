@@ -36,7 +36,7 @@ def save_csv(qualifying_loans, csvpath):
         csvpath (Path): The csv file path.
 
     Returns:
-        A list of lists that contains the rows of data from the CSV file.
+        Verification that the file was saved
 
     """
     header = ["lender", "max_loan_amount", "Max LTV", "Max DTI", "Min Credit Score", "Interest_Rate"]

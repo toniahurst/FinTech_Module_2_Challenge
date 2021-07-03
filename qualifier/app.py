@@ -117,7 +117,14 @@ def save_qualifying_loans(qualifying_loans):
     file_name = questionary.text("Please give a name for a file in snake_case and ending in csv").ask()
     csvpath = Path(file_name)
     
+
+
+
     save_csv(qualifying_loans, csvpath)
+    print('\u001b[32;1m')
+    print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
+    print('\u001b[0m') # and reset to default color
+
 """"""
      
 
@@ -140,10 +147,6 @@ def run():
 
     # Write to the file
     
-
-  
-
-
 
 
 
