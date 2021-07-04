@@ -31,22 +31,19 @@ def load_csv(csvpath):
     
 def save_csv(qualifying_loans, csvpath):
     """Writes the CSV file from path provided.
-
     Args:
         csvpath (Path): The csv file path.
-
     Returns:
         Verification that the file was saved
-
     """
     header = ["lender", "max_loan_amount", "Max LTV", "Max DTI", "Min Credit Score", "Interest_Rate"]
-    
+    print("path name received is:" , csvpath)
+
     with open(csvpath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
-        
+
         # Write our header row first!
         csvwriter.writerow(header)
-
         # Then we can write the data rows
         for row in qualifying_loans:
             csvwriter.writerow(row)    
