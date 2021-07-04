@@ -125,15 +125,15 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     # Calculate the monthly debt ratio
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
-    print("\n")
+    print("\n", "\u001b[34;1m")
     print(f"The monthly debt to income ratio is {monthly_debt_ratio:.02f}")
-    print("\n")
+    print("\u001b[0m")
 
     # Calculate loan to value ratio
     loan_to_value_ratio = calculate_loan_to_value_ratio(loan, home_value)
-    
+    print("\n", "\u001b[34;1m")
     print(f"The loan to value ratio is {loan_to_value_ratio:.02f}.")
-    print("\n")
+    print("\n", "\u001b[0m")
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
 
     # Run qualification filters
@@ -141,8 +141,9 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     bank_data_filtered = filter_credit_score(credit_score, bank_data_filtered)
     bank_data_filtered = filter_debt_to_income(monthly_debt_ratio, bank_data_filtered)
     bank_data_filtered = filter_loan_to_value(loan_to_value_ratio, bank_data_filtered)
-    print("")
+    print("", "\u001b[32m")
     print(f"The client qualifies for {len(bank_data_filtered)} loans.")
+    print("\u001b[0m")
 
     return bank_data_filtered
 
@@ -155,7 +156,6 @@ def save_qualifying_loans(qualifying_loans):
     """
     # Usability dialog for savings the CSV Files.
 
-    print("\n" * 2)
     save_file = questionary.text("Would you like to save these loans to a file? y or n: ").ask()
     print("\n")
     if save_file == "y":
@@ -163,7 +163,7 @@ def save_qualifying_loans(qualifying_loans):
         print("\n")
         csvpath = Path(file_name)
         save_csv(qualifying_loans, csvpath)
-        print('\u001b[32;1m')
+        print("\u001b[32m")
         print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
         print("\n")
         print('\u001b[0m') # and reset to default color
