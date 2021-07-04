@@ -126,13 +126,13 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n", "\u001b[34;1m")
-    print(f"The monthly debt to income ratio is {monthly_debt_ratio:.02f}")
+    print(f"------->>>  Monthly debt-to-income ratio is {monthly_debt_ratio:.02f}")
     print("\u001b[0m")
 
     # Calculate loan to value ratio
     loan_to_value_ratio = calculate_loan_to_value_ratio(loan, home_value)
     print("\n", "\u001b[34;1m")
-    print(f"The loan to value ratio is {loan_to_value_ratio:.02f}.")
+    print(f"------->>>  Loan-to-value ratio is {loan_to_value_ratio:.02f}.")
     print("\n", "\u001b[0m")
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
 
@@ -163,10 +163,11 @@ def save_qualifying_loans(qualifying_loans):
         print("\n")
         csvpath = Path(file_name)
         save_csv(qualifying_loans, csvpath)
-        print("\u001b[32m")
-        print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
+        print("Your file", "\u001b[32m", (csvpath), "\u001b[0m", "has been saved to: ", "\u001b[32m", csvpath.absolute(),  "\u001b[0m")
+        clean = ["Your file", "\u001b[32m", (csvpath), "\u001b[0m", "has been saved to: ", "\u001b[32m", csvpath.absolute(),  "\u001b[0m"]
+        clean = clean.strip()
+        print(clean)
         print("\n")
-        print('\u001b[0m') # and reset to default color
         
     else:
         print("Your file will NOT be saved. Goodbye", "\n")
