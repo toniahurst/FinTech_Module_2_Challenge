@@ -128,19 +128,23 @@ def save_qualifying_loans(qualifying_loans):
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
     print("\n" * 2)
-    save_file = questionary.text("Would you like to save these loans to a file? y or n").ask()
+    save_file = questionary.text("Would you like to save these loans to a file? y or n: ").ask()
+    print("\n")
     if save_file == "y":
         file_name = questionary.text("Please name your file using snake_case and ending in csv. Ex: my_loans.csv").ask()
-        print("\n" * 2)
+        print("\n")
         csvpath = Path(file_name)
         save_csv(qualifying_loans, csvpath)
-        print("\n" * 10)
         print('\u001b[32;1m')
         print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
-        print("\n" * 4)
+        print("\n")
         print('\u001b[0m') # and reset to default color
+        
     else:
-        print("Your file will NOT be saved.")
+        print("Your file will NOT be saved. Goodbye", "\n")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("\n")
+   
 
      
 
