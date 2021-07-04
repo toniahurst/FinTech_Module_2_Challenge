@@ -1,6 +1,6 @@
 # import calculators
 
-from qualifier.utils import calculators
+from qualifier.qualifier.utils import calculators
 
 def test_calculate_monthly_debt_ratio():
     assert calculators.calculate_monthly_debt_ratio(500, 10000) == 0.05

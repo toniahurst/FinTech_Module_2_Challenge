@@ -32,7 +32,7 @@ def load_bank_data():
     Returns:
         The bank data from the data rate sheet CSV file.
     """
-    print("\n" * 100)
+    print("\n" * 40)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n" * 2)
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
@@ -51,30 +51,50 @@ def get_applicant_info():
         Returns the applicant's financial information.
     """
 
-    credit_score = questionary.text("Enter a credit score between 300 and 850: ").ask()
-    print("\n")
-    if int(credit_score) < 300 or int(credit_score) > 850:
-        print("\u001b[31m.", "\n")
+    credit_score = int(questionary.text("Enter a credit score between 300 and 850: ").ask())
+    if credit_score < 300 or credit_score > 850:
+        print("\u001b[31m", "\n")
         print("Credit score must be between 300 and 850.", "\n")
+        print("Exiting system...", "\u001b[0m")
+        exit()
+    else:
+        True
+
+    debt = float(questionary.text("What's your current monthly debt? ").ask())
+    if debt < 0:
+        print("\u001b[31m", "\n")
+        print("Monthly debt must be greater than or equal to 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
-
     else:
-        print("\n")
+        True
 
-    debt = 5000 # questionary.text("What's your current monthly debt? ").ask()
-    print("")
-    income = 20000 # questionary.text("What's your total monthly income?").ask()
-    print("")
-    loan_amount = 100000 # questionary.text("What's your desired loan amount?").ask()
-    print("")
-    home_value = 210000 # questionary.text("What's your home value?").ask()
-    print("\n")
-    credit_score = int(credit_score)
-    debt = float(debt)
-    income = float(income)
-    loan_amount = float(loan_amount)
-    home_value = float(home_value)
+    income = float(questionary.text("What's your total monthly income?").ask())
+    if income < 0:
+        print("\u001b[31m", "\n")
+        print("Monthly INCOME must be greater than 0.", "\n")
+        print("Exiting system...", "\u001b[0m", "\n")
+        exit()
+    else:
+        True
+
+    loan_amount = float(questionary.text("What's your desired loan amount?").ask())
+    if loan_amount < 0:
+        print("\u001b[31m", "\n")
+        print("Loan amount must be greater than 0.", "\n")
+        print("Exiting system...", "\u001b[0m", "\n")
+        exit()
+    else:
+        True
+
+    home_value = float(questionary.text("What's your home value?").ask())
+    if home_value < 0:
+        print("\u001b[31m", "\n")
+        print("Monthly debt must be greater than or equal to 0.", "\n")
+        print("Exiting system...", "\u001b[0m", "\n")
+        exit()
+    else:
+        True
 
     return credit_score, debt, income, loan_amount, home_value
 
@@ -133,8 +153,8 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+    # Usability dialog for savings the CSV Files.
+
     print("\n" * 2)
     save_file = questionary.text("Would you like to save these loans to a file? y or n: ").ask()
     print("\n")
