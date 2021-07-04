@@ -33,8 +33,11 @@ def load_bank_data():
     Returns:
         The bank data from the data rate sheet CSV file.
     """
-
+    print("\n" * 100)
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("\n" * 2)
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
+    print("")
     csvpath = Path(csvpath)
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
@@ -49,12 +52,16 @@ def get_applicant_info():
         Returns the applicant's financial information.
     """
 
-    credit_score = 750 # questionary.text("What's your credit score?").ask()
-    debt = 5000 # questionary.text("What's your current amount of monthly debt?").ask()
-    income = 20000 # questionary.text("What's your total monthly income?").ask()
-    loan_amount = 100000 #questionary.text("What's your desired loan amount?").ask()
-    home_value = 210000 # questionary.text("What's your home value?").ask()
-
+    credit_score = questionary.text("Enter a crecdit score between 300 and 850: ").ask()
+    print("")
+    debt = questionary.text("What's your current monthly debt? ").ask()
+    print("")
+    income = questionary.text("What's your total monthly income?").ask()
+    print("")
+    loan_amount = questionary.text("What's your desired loan amount?").ask()
+    print("")
+    home_value = questionary.text("What's your home value?").ask()
+    print("\n")
     credit_score = int(credit_score)
     debt = float(debt)
     income = float(income)
@@ -89,19 +96,25 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     # Calculate the monthly debt ratio
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("\n")
     print(f"The monthly debt to income ratio is {monthly_debt_ratio:.02f}")
+    print("\n")
 
     # Calculate loan to value ratio
     loan_to_value_ratio = calculate_loan_to_value_ratio(loan, home_value)
+    
     print(f"The loan to value ratio is {loan_to_value_ratio:.02f}.")
+    print("\n")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
 
     # Run qualification filters
     bank_data_filtered = filter_max_loan_size(loan, bank_data)
     bank_data_filtered = filter_credit_score(credit_score, bank_data_filtered)
     bank_data_filtered = filter_debt_to_income(monthly_debt_ratio, bank_data_filtered)
     bank_data_filtered = filter_loan_to_value(loan_to_value_ratio, bank_data_filtered)
-
-    print(f"Found {len(bank_data_filtered)} qualifying loans")
+    print("")
+    print(f"The client qualifies for {len(bank_data_filtered)} loans.")
 
     return bank_data_filtered
 
@@ -114,19 +127,21 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-    file_name = questionary.text("Please name your file using snake_case and ending in csv. Ex: my_loans.csv").ask()
-    csvpath = Path(file_name)
-    
+    print("\n" * 2)
+    save_file = questionary.text("Would you like to save these loans to a file? y or n").ask()
+    if save_file == "y":
+        file_name = questionary.text("Please name your file using snake_case and ending in csv. Ex: my_loans.csv").ask()
+        print("\n" * 2)
+        csvpath = Path(file_name)
+        save_csv(qualifying_loans, csvpath)
+        print("\n" * 10)
+        print('\u001b[32;1m')
+        print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
+        print("\n" * 4)
+        print('\u001b[0m') # and reset to default color
+    else:
+        print("Your file will NOT be saved.")
 
-    save_csv(qualifying_loans, csvpath)
-
-    print("\n" * 4)
-    print('\u001b[32;1m')
-    print(f"Your file {csvpath} has been saved to {csvpath.absolute()}")
-    print("\n" * 4)
-    print('\u001b[0m') # and reset to default color
-
-""""""
      
 
 def run():
