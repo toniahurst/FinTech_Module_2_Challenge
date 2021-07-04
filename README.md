@@ -1,6 +1,6 @@
 # FinTech_Module_2_Challenge
 
-This project focuses on a multi-part app which can be used (along with client data) to identify loans for which the client qualifies. 
+This project contains a multi-part, modularized app which can be used (along with client data) to identify loans for which the client qualifies. 
 
 ---
 
