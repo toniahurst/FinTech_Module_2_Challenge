@@ -51,8 +51,17 @@ def get_applicant_info():
         Returns the applicant's financial information.
     """
 
-    credit_score = 750 # questionary.text("Enter a crecdit score between 300 and 850: ").ask()
-    print("")
+    credit_score = questionary.text("Enter a credit score between 300 and 850: ").ask()
+    print("\n")
+    if int(credit_score) < 300 or int(credit_score) > 850:
+        print("\u001b[31m.", "\n")
+        print("Credit score must be between 300 and 850.", "\n")
+        print("Exiting system...", "\u001b[0m", "\n")
+        exit()
+
+    else:
+        print("\n")
+
     debt = 5000 # questionary.text("What's your current monthly debt? ").ask()
     print("")
     income = 20000 # questionary.text("What's your total monthly income?").ask()
