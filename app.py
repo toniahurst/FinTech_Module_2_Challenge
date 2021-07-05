@@ -133,9 +133,12 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     bank_data_filtered = filter_credit_score(credit_score, bank_data_filtered)
     bank_data_filtered = filter_debt_to_income(monthly_debt_ratio, bank_data_filtered)
     bank_data_filtered = filter_loan_to_value(loan_to_value_ratio, bank_data_filtered)
-    print("", "\u001b[32m")
-    print(f"The client qualifies for {len(bank_data_filtered)} loans.")
-    print("\u001b[0m")
+    number_of_loans_available = len(bank_data_filtered)
+    if number_of_loans_available <= 0:
+        print("I'm sorry. We have no loans to offer this user at this time.")
+        exit()
+    else: 
+        print("\u001b[32m", "Congratulations! This user qualifies for : ", number_of_loans_available, "loans.", "\u001b[0m", "\n")
 
     return bank_data_filtered
 
@@ -160,8 +163,8 @@ def save_qualifying_loans(qualifying_loans):
         
     else:
         print("Your file will NOT be saved. Goodbye", "\n")
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
-    print("\n")
+        print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+        print("\n")
    
 
      

@@ -37,7 +37,7 @@ def save_csv(qualifying_loans, csvpath):
         Verification that the file was saved
     """
     header = ["lender", "max_loan_amount", "Max LTV", "Max DTI", "Min Credit Score", "Interest_Rate"]
-    print("path name received is:" , csvpath)
+ 
 
     with open(csvpath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)

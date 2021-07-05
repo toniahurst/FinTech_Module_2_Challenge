@@ -18,7 +18,7 @@ def test_save_csv():
     # Use Path from pathlib to output the test csv to ./data/output/qualifying_loans.csv
 
 def test_calculate_monthly_debt_ratio():
-    assert calculators.calculate_monthly_debt_ratio(1500, 4000) == 0.375
+    assert calculators.calculate_monthly_debt_ratio(1500, 4000) == 0.378
 
 def test_calculate_loan_to_value_ratio():
     assert calculators.calculate_loan_to_value_ratio(210000, 250000) == 0.84
