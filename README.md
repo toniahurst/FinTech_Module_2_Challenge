@@ -14,6 +14,8 @@ This program uses Python 3.7, CSV.py, Fire, Questionary, and Path from pathlib. 
 
 In this section, you should include detailed installation notes containing code blocks and screenshots.
 
+Make sure to install questionary, fire, pytest
+
 
 
 ---
