@@ -32,9 +32,9 @@ def load_bank_data():
     Returns:
         The bank data from the data rate sheet CSV file.
     """
-    print("\n" * 40)
+    print("\n" * 20)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
-    print("\n" * 2)
+    print("\n")
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
     print("")
     csvpath = Path(csvpath)
@@ -116,7 +116,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     # Calculate the monthly debt ratio
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("\n", "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n", "\u001b[34;1m")
     print(f"------->>>  Monthly debt-to-income ratio is {monthly_debt_ratio:.02f}")
     print("\u001b[0m")
@@ -126,7 +126,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     print("\n", "\u001b[34;1m")
     print(f"------->>>  Loan-to-value ratio is {loan_to_value_ratio:.02f}.")
     print("\n", "\u001b[0m")
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
+    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
 
     # Run qualification filters
     bank_data_filtered = filter_max_loan_size(loan, bank_data)
@@ -135,10 +135,10 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     bank_data_filtered = filter_loan_to_value(loan_to_value_ratio, bank_data_filtered)
     number_of_loans_available = len(bank_data_filtered)
     if number_of_loans_available <= 0:
-        print("I'm sorry. We have no loans to offer this user at this time.")
+        print("I'm sorry. We have no loans to offer at this time."), "\n"
         exit()
     else: 
-        print("\u001b[32m", "Congratulations! This user qualifies for : ", number_of_loans_available, "loans.", "\u001b[0m", "\n")
+        print("\u001b[32m", "Congratulations! You qualify for : ", number_of_loans_available, "loan(s).", "\u001b[0m", "\n")
 
     return bank_data_filtered
 
@@ -151,15 +151,13 @@ def save_qualifying_loans(qualifying_loans):
     """
     # Usability dialog for savings the CSV Files.
 
-    save_file = questionary.text("Would you like to save these loans to a file? y or n: ").ask()
+    save_file = questionary.confirm("Would you like to save these loans to a file? y or n: ").ask()
     print("\n")
-    if save_file == "y":
-        file_name = questionary.text("Please name your file using snake_case and ending in csv. Ex: my_loans.csv").ask()
-        print("\n")
+    if save_file:
+        file_name = questionary.text("Please provide a name for your file. Ex: my_loans.csv").ask()
         csvpath = Path(file_name)
         save_csv(qualifying_loans, csvpath)
-        print("Your file", "\u001b[32m", (csvpath), "\u001b[0m", "has been saved to: ", "\u001b[32m", csvpath.absolute(),  "\u001b[0m")
-        print("\n")
+        print("\n","\u001b[32m",(csvpath),"\u001b[0m", "has been saved to: ","\u001b[32m", csvpath.absolute(),"\u001b[0m","\n")
         
     else:
         print("Your file will NOT be saved. Goodbye", "\n")
