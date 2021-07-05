@@ -57,17 +57,13 @@ def get_applicant_info():
         print("Credit score must be between 300 and 850.", "\n")
         print("Exiting system...", "\u001b[0m")
         exit()
-    else:
-        True
-
+        
     debt = float(questionary.text("What's your current monthly debt? ").ask())
     if debt < 0:
         print("\u001b[31m", "\n")
         print("Monthly debt must be greater than or equal to 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
-    else:
-        True
 
     income = float(questionary.text("What's your total monthly income?").ask())
     if income < 0:
@@ -84,8 +80,6 @@ def get_applicant_info():
         print("Loan amount must be greater than 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
-    else:
-        True
 
     home_value = float(questionary.text("What's your home value?").ask())
     if home_value < 0:
@@ -93,8 +87,6 @@ def get_applicant_info():
         print("Monthly debt must be greater than or equal to 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
-    else:
-        True
 
     return credit_score, debt, income, loan_amount, home_value
 
@@ -164,9 +156,6 @@ def save_qualifying_loans(qualifying_loans):
         csvpath = Path(file_name)
         save_csv(qualifying_loans, csvpath)
         print("Your file", "\u001b[32m", (csvpath), "\u001b[0m", "has been saved to: ", "\u001b[32m", csvpath.absolute(),  "\u001b[0m")
-        clean = ["Your file", "\u001b[32m", (csvpath), "\u001b[0m", "has been saved to: ", "\u001b[32m", csvpath.absolute(),  "\u001b[0m"]
-        clean = clean.strip()
-        print(clean)
         print("\n")
         
     else:

@@ -1,29 +1,17 @@
-# import calculators
-
-from qualifier.qualifier.utils import calculators
-
-def test_calculate_monthly_debt_ratio():
-    assert calculators.calculate_monthly_debt_ratio(500, 10000) == 0.05
-
-def test_calculate_loan_to_value_ratio():
-    assert calculators.calculate_loan_to_value_ratio(210000, 250000) == 0.84
-
-#####
-
 # Import pathlib
 from pathlib import Path
 
 #Import fileio
-from qualifier.utils import fileio
+from qualifier.qualifier.utils import fileio
 
 # Import Calculators
-from qualifier.utils import calculators
+from qualifier.qualifier.utils import calculators
 
 # Import Filters
-from qualifier.filters import credit_score
-from qualifier.filters import debt_to_income
-from qualifier.filters import loan_to_value
-from qualifier.filters import max_loan_size
+from qualifier.qualifier.filters import credit_score
+from qualifier.qualifier.filters import debt_to_income
+from qualifier.qualifier.filters import loan_to_value
+from qualifier.qualifier.filters import max_loan_size
 
 def test_save_csv():
     # @TODO: Your code here!
