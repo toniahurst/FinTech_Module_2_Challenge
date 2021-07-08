@@ -20,6 +20,8 @@ from qualifier.qualifier.utils.calculators import (
     calculate_loan_to_value_ratio,
 )
 
+from qualifier.qualifier.utils.number_checker import number_checker
+
 from qualifier.qualifier.filters.max_loan_size import filter_max_loan_size
 from qualifier.qualifier.filters.credit_score import filter_credit_score
 from qualifier.qualifier.filters.debt_to_income import filter_debt_to_income
@@ -51,14 +53,16 @@ def get_applicant_info():
         Returns the applicant's financial information.
     """
 
-    credit_score = int(questionary.text("Enter a credit score between 300 and 850: ").ask())
-    if credit_score < 300 or credit_score > 850:
+    credit_score = questionary.text("Enter a credit score between 300 and 850: ").ask()
+    credit_score = number_checker(credit_score)
+    if credit_score < 300 and credit_score > 850:
         print("\u001b[31m", "\n")
         print("Credit score must be between 300 and 850.", "\n")
         print("Exiting system...", "\u001b[0m")
         exit()
         
     debt = float(questionary.text("What's your current monthly debt? ").ask())
+    debt = number_checker(debt)
     if debt < 0:
         print("\u001b[31m", "\n")
         print("Monthly debt must be greater than or equal to 0.", "\n")
@@ -173,13 +177,13 @@ def run():
     # Load the latest Bank data
     bank_data = load_bank_data()
 
+
     # Get the applicant's information
     credit_score, debt, income, loan_amount, home_value = get_applicant_info()
 
     # Find qualifying loans
     qualifying_loans = find_qualifying_loans(
-        bank_data, credit_score, debt, income, loan_amount, home_value
-    )
+        bank_data, credit_score, debt, income, loan_amount, home_value)
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
