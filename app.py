@@ -55,7 +55,6 @@ def get_applicant_info():
 
     credit_score = questionary.text("Enter a credit score between 300 and 850: ").ask()
     credit_score = number_checker(credit_score)
-    print("credit_score is : ", credit_score)
     if credit_score == False or credit_score < 300 and credit_score > 850:
         print("\u001b[31m", "\n")
         print("Credit score must be a number between 300 and 850.", "\n")

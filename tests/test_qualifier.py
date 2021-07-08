@@ -20,7 +20,7 @@ def test_save_csv():
         #assert(csvpath) == Path('./data/output/qualifying_loans.csv').exists()
 
 
-    file = open("/Users/antoniamalvino/Desktop/FinTech_Module_2_Challenge/output.txt",'r')
+    file = open("/Users/antoniamalvino/Desktop/FinTech_Module_2_Challenge/qualifier/data/qualifying_loans.csv",'r')
     expected = ["lender", "max_loan_amount", "Max LTV", "Max DTI", "Min Credit Score", "Interest_Rate"]
     assert expected==file.readline().rstrip().split(",")
 
