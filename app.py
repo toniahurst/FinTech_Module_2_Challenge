@@ -163,8 +163,8 @@ def save_qualifying_loans(qualifying_loans):
     if save_file:
         output = questionary.text("Please provide a name for your file. Ex: my_loans.csv").ask()
         csvpath = Path(output)
-        ###
-        save_csv(csvpath, data, header=None)
+        ### (csvpath, data, header=None)
+        save_csv(csvpath, qualifying_loans, header=None)
         print("\n","\u001b[32m",(csvpath),"\u001b[0m", "has been saved to: ","\u001b[32m", csvpath.absolute(),"\u001b[0m","\n")
         
     else:

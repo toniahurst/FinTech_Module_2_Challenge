@@ -36,10 +36,11 @@ def save_csv(csvpath, data, header=None):
     Returns:
         Verification that the file was saved
     """
+    header = ['Lender','Max Loan Amount','Max LTV','Max DTI','Min Credit Score','Interest Rate']
     
     with open(csvpath, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=",")
         if header:
         # Write our header row first!
             csvwriter.writerow(header)
-        csvwriter.writerow(data)    
+        csvwriter.writerows(data)    
