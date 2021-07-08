@@ -55,25 +55,26 @@ def get_applicant_info():
 
     credit_score = questionary.text("Enter a credit score between 300 and 850: ").ask()
     credit_score = number_checker(credit_score)
-    if credit_score < 300 and credit_score > 850:
+    print("credit_score is : ", credit_score)
+    if credit_score == False or credit_score < 300 and credit_score > 850:
         print("\u001b[31m", "\n")
-        print("Credit score must be between 300 and 850.", "\n")
-        print("Exiting system...", "\u001b[0m")
+        print("Credit score must be a number between 300 and 850.", "\n")
+        print("Exiting app...", "\u001b[0m", "\n")
         exit()
         
     debt = questionary.text("What's your current monthly debt? ").ask()
     debt = number_checker(debt)
-    if debt < 0:
+    if debt == False or debt < 0:
         print("\u001b[31m", "\n")
-        print("Monthly debt must be greater than or equal to 0.", "\n")
+        print("Monthly debt must be greater than or equal to 0 to use this app.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
 
     income = questionary.text("What's your total monthly income?").ask()
     income = number_checker(income)
-    if income < 0:
+    if income == False or income < 0:
         print("\u001b[31m", "\n")
-        print("Monthly INCOME must be greater than 0.", "\n")
+        print("Your Monthly INCOME must be greater than 0 to sue this app.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
     else:
@@ -81,7 +82,7 @@ def get_applicant_info():
 
     loan_amount = questionary.text("What's your desired loan amount?").ask()
     loan_amount = number_checker(loan_amount)
-    if loan_amount < 0:
+    if loan_amount == False or loan_amount < 0:
         print("\u001b[31m", "\n")
         print("Loan amount must be greater than 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
@@ -89,9 +90,9 @@ def get_applicant_info():
 
     home_value = questionary.text("What's your home value?").ask()
     home_value = number_checker(home_value)
-    if home_value < 0:
+    if home_value == False or home_value < 0:
         print("\u001b[31m", "\n")
-        print("Monthly debt must be greater than or equal to 0.", "\n")
+        print("Your home value must be greater than or equal to 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
 

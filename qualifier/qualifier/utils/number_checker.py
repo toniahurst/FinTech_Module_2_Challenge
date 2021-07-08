@@ -1,9 +1,6 @@
-def number_checker(input):
-    
-    print("Inside fucntion input is : ", input)
+def number_checker(input):  
     # handling an integer
     if input.isnumeric():
-        print("Input is ", input)
         input = int(input)
         return input
     else:
