@@ -1,11 +1,18 @@
 """Number Checker
 
-This script takes the an expected numeric input and converts it 
-to an integer or a float depending on the contents of the string.
-
+This script takes user input and converts it 
+to an integer, float or error.
 """
 
 def number_checker(input):  
+    """Finds type of input (in, float, other).
+
+    Args:
+        input : a string of alphanumeric characters
+    Returns:
+        input : the string converted to an int, float 
+        or error message depending on contents of string.
+    """
     # handling an integer
     if input.isnumeric():
         input = int(input)
