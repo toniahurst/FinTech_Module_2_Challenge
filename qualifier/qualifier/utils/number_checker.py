@@ -1,3 +1,10 @@
+"""Number Checker
+
+This script takes the an expected numeric input and converts it 
+to an integer or a float depending on the contents of the string.
+
+"""
+
 def number_checker(input):  
     # handling an integer
     if input.isnumeric():
@@ -11,6 +18,6 @@ def number_checker(input):
             return input
         except ValueError:
             # input is something else
-            print("Not a float")
+            print("This app requires numeric data.")
             return False
     
