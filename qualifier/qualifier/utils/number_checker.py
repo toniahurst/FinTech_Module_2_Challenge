@@ -1,9 +1,13 @@
 def number_checker(input):
+    
     print("Inside fucntion input is : ", input)
-    temp = list(input)
-    print("Temp is: ", temp)
-    print(temp.count('.'))
-    if temp.count('.') >= 1:
+    # handling an integer
+    if input.isnumeric():
+        print("Input is ", input)
+        input = int(input)
+        return input
+    else:
+        # input is a float or its a mix of other chars
         print ("Input is: ", input)
 
             # is the input a float?
@@ -15,8 +19,4 @@ def number_checker(input):
         except ValueError:
             print("Not a float")
             return False
-    else:
-        input.isnumeric()
-        input = int(input)
-        print("Input is an INT: ", input)
-        return input
+    

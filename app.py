@@ -61,7 +61,7 @@ def get_applicant_info():
         print("Exiting system...", "\u001b[0m")
         exit()
         
-    debt = float(questionary.text("What's your current monthly debt? ").ask())
+    debt = questionary.text("What's your current monthly debt? ").ask()
     debt = number_checker(debt)
     if debt < 0:
         print("\u001b[31m", "\n")
@@ -69,7 +69,8 @@ def get_applicant_info():
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
 
-    income = float(questionary.text("What's your total monthly income?").ask())
+    income = questionary.text("What's your total monthly income?").ask()
+    income = number_checker(income)
     if income < 0:
         print("\u001b[31m", "\n")
         print("Monthly INCOME must be greater than 0.", "\n")
@@ -78,14 +79,16 @@ def get_applicant_info():
     else:
         True
 
-    loan_amount = float(questionary.text("What's your desired loan amount?").ask())
+    loan_amount = questionary.text("What's your desired loan amount?").ask()
+    loan_amount = number_checker(loan_amount)
     if loan_amount < 0:
         print("\u001b[31m", "\n")
         print("Loan amount must be greater than 0.", "\n")
         print("Exiting system...", "\u001b[0m", "\n")
         exit()
 
-    home_value = float(questionary.text("What's your home value?").ask())
+    home_value = questionary.text("What's your home value?").ask()
+    home_value = number_checker(home_value)
     if home_value < 0:
         print("\u001b[31m", "\n")
         print("Monthly debt must be greater than or equal to 0.", "\n")
