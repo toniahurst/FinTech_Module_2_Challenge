@@ -37,11 +37,10 @@ def load_bank_data():
     print("\n" * 10)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n")
-    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv): ").ask()
-    print("")
+    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
     csvpath = Path(csvpath)
     if not csvpath.exists():
-        sys.exit("Oops! Can't find the path you provided.")
+        sys.exit(f"Oops! Can't find this path: {csvpath}")
 
     return load_csv(csvpath)
 
