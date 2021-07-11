@@ -12,9 +12,7 @@ This program uses Python 3.7.10, CSV.py, Fire 0.4.0, Questionary 1.9.0, pytest 6
 
 ## Installation Guide
 
-In this section, you should include detailed installation notes containing code blocks and screenshots.
-
-Make sure to install questionary, fire, pytest
+Install questionary, fire, pytest at the terminal. Also include these at the top of your app file.
 
 
 
