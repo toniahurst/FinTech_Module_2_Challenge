@@ -144,7 +144,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
         print("I'm sorry. We have no loans to offer at this time."), "\n"
         exit()
     else: 
-        print("\u001b[32m", "Congratulations! You qualify for : ", number_of_loans_available, "loan(s).", "\u001b[0m", "\n")
+        print("\u001b[32m", f"Congratulations! You qualify for: {number_of_loans_available} loan(s).", "\u001b[0m", "\n")
 
     return bank_data_filtered
 

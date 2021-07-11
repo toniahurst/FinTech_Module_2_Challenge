@@ -9,12 +9,6 @@ from qualifier.utils import calculators
 
 # Import Filters
 from qualifier.filters import filters
-"""
-from qualifier.filters import credit_score
-from qualifier.filters import debt_to_income
-from qualifier.filters import loan_to_value
-from qualifier.filters import max_loan_size
-"""
 
 def test_save_csv():
     # @TODO: Your code here!
@@ -30,21 +24,22 @@ def test_calculate_loan_to_value_ratio():
     assert calculators.calculate_loan_to_value_ratio(210000, 250000) == 0.84
 
 def test_filters():
-   bank_data = fileio.load_csv(Path('/Users/antoniamalvino/Desktop/FinTech_Module_2/FinTech_Module_2_Challenge/data/daily_rate_sheet.csv'))
-   #assert filters.filter_credit_score(current_credit_score, bank_data([4])) == 740
-   assert filters.filter_debt_to_income(1500, 4000) == 0.375
-   assert filters.filter_loan_to_value(loan, home_value) == 0.84
-   #assert filters.filter_max_loan_size(210000, bank_data) == 300000
+    bank_data = fileio.load_csv(Path('../data/daily_rate_sheet.csv'))
+     #assert filters.filter_credit_score(current_credit_score, bank_data([4])) == 740
+    assert filters.filter_debt_to_income(debt, income) == 0.375
+    assert filters.filter_loan_to_value(loan, home_value) == 0.84
+    #assert filters.filter_max_loan_size(loan, bank_data) == 300000
+
 
 current_credit_score = 750
-debt = float(1500)
-income = float(4000)
-loan = float(210000)
-home_value = float(250000)
+debt = 1500
+income = 4000
+loan = 210000
+home_value = 250000
 
 monthly_debt_ratio = 0.375
 
 loan_to_value_ratio = 0.84
 
-    # @TODO: Test the new save_csv code!
-    # YOUR CODE HERE!
+# @TODO: Test the new save_csv code!
+# YOUR CODE HERE!
