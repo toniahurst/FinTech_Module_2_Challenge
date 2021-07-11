@@ -40,7 +40,7 @@ def load_bank_data():
     print("\n","* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
     csvpath = Path(csvpath)
     if not csvpath.exists():
-        sys.exit(f"Oops! Can't find this path: {csvpath}")
+        sys.exit("Oops! Can't find this path: ", csvpath)
 
     return load_csv(csvpath)
 
@@ -124,7 +124,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print("\n", "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n", "\u001b[34;1m")
-    print(f"------->>>  Monthly debt-to-income ratio is {monthly_debt_ratio:.02f}.")
+    print(f"------->>>  Monthly debt-to-income ratio is: {monthly_debt_ratio:.02f}.")
     print("\u001b[0m")
 
     # Calculate loan to value ratio
