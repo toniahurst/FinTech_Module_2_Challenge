@@ -25,6 +25,6 @@ This section should include screenshots, code blocks, or animations showing how 
 
 Runnning app.py from the terminal:
 
-![alt text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov)
+[text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov)
 
 ---
