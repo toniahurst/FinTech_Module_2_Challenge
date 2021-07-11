@@ -34,10 +34,10 @@ def load_bank_data():
     Returns:
         The bank data from the data rate sheet CSV file.
     """
-    print("\n" * 10)
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
-    print("\n")
+    print("\n" * 8)
+    print(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
+    print("\n","* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
     csvpath = Path(csvpath)
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
@@ -132,7 +132,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     print("\n", "\u001b[34;1m")
     print(f"------->>>  Loan-to-value ratio is {loan_to_value_ratio:.02f}.")
     print("\n", "\u001b[0m")
-    print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
+    print(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", "\n")
 
     # Run qualification filters
     bank_data_filtered = filter_max_loan_size(loan, bank_data)
