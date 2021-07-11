@@ -37,11 +37,11 @@ def load_bank_data():
     print("\n" * 10)
     print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n")
-    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
+    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv): ").ask()
     print("")
     csvpath = Path(csvpath)
     if not csvpath.exists():
-        sys.exit(f"Oops! Can't find the path you provided: {csvpath}")
+        sys.exit("Oops! Can't find the path you provided.")
 
     return load_csv(csvpath)
 
@@ -125,7 +125,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     monthly_debt_ratio = calculate_monthly_debt_ratio(debt, income)
     print("\n", "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *")
     print("\n", "\u001b[34;1m")
-    print(f"------->>>  Monthly debt-to-income ratio is {monthly_debt_ratio:.02f}")
+    print(f"------->>>  Monthly debt-to-income ratio is {monthly_debt_ratio:.02f}.")
     print("\u001b[0m")
 
     # Calculate loan to value ratio
@@ -161,11 +161,10 @@ def save_qualifying_loans(qualifying_loans):
     save_file = questionary.confirm("Would you like to save these loans to a file? y or n: ").ask()
     print("\n")
     if save_file:
-        output = questionary.text("Please provide a name for your file. Ex: my_loans.csv").ask()
+        output = questionary.text("Please provide a name for your file. Ex: my_loans.csv: ").ask()
         csvpath = Path(output)
-        ### (csvpath, data, header=None)
         save_csv(csvpath, qualifying_loans, header=None)
-        print("\n","\u001b[32m",(csvpath),"\u001b[0m", "has been saved to: ","\u001b[32m", csvpath.absolute(),"\u001b[0m","\n")
+        print("\n","\u001b[32m",(csvpath),"\u001b[0m", "has been saved to:","\u001b[32m", csvpath.absolute(),"\u001b[0m","\n")
         
     else:
         print("Your file will NOT be saved. Goodbye", "\n")
@@ -193,8 +192,5 @@ def run():
 
 
     
-
-
-
 if __name__ == "__main__":
     fire.Fire(run)
