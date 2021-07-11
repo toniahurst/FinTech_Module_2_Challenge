@@ -21,5 +21,6 @@ Install questionary, fire, pytest at the terminal. Also include these at the top
 ## Examples
 
 This section should include screenshots, code blocks, or animations showing how your project works.
+![alt text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge.png)
 
 ---
