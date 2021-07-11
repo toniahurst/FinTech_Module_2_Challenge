@@ -29,7 +29,7 @@ If you'd like to see app.py run from the terminal click this link for a raw vide
 
 ---
 
-## Conbtributors
+## Contributors
 
 Antonia Hurst.
 
