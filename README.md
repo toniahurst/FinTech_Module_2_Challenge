@@ -14,9 +14,7 @@ This program uses Python 3.7.10, CSV.py, Fire 0.4.0, Questionary 1.9.0, pytest 6
 
 To run this program, you will need to do the following at the terminal:
 
-pip install fire
-pip install questionary
-pip install pytest
+![alt text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/images%20for%20README/install_apps.png)
 
 ---
 
