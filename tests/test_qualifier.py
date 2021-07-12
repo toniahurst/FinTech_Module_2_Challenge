@@ -49,6 +49,3 @@ home_value = 250000
 monthly_debt_ratio = 0.375
 
 loan_to_value_ratio = 0.84
-
-# @TODO: Test the new save_csv code!
-# YOUR CODE HERE!
