@@ -12,9 +12,11 @@ This program uses Python 3.7.10, CSV.py, Fire 0.4.0, Questionary 1.9.0, pytest 6
 
 ## Installation Guide
 
-Install questionary, fire, pytest at the terminal. Also include these at the top of your app file.
+To run this program, you will need to do the following at the terminal:
 
-
+pip install fire
+pip install questionary
+pip install pytest
 
 ---
 
@@ -23,9 +25,7 @@ Install questionary, fire, pytest at the terminal. Also include these at the top
 This section should include screenshots, code blocks, or animations showing how your project works.
 ![alt text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge.png)
 
-If you'd like to see app.py run from the terminal click this link for a raw video download...
-
-[text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov)
+If you'd like to see app.py run from the terminal, [click HERE to download a video](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov).
 
 ---
 
