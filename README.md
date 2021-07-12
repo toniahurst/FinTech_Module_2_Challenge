@@ -23,7 +23,7 @@ Install questionary, fire, pytest at the terminal. Also include these at the top
 This section should include screenshots, code blocks, or animations showing how your project works.
 ![alt text](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge.png)
 
-If you'd like to see app.py run from the terminal click here for [video from terminal](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov) for a raw feed download.
+If you'd like to see app.py run from the terminal, [click this link for a video from the terminal](https://github.com/toniahurst/FinTech_Module_2_Challenge/blob/main/Module_2_Challenge_app.py_run%20from%20terminal.mov).
 
 ---
 
